@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>YT-Ripper</title>
+    <link rel="icon" href="assets/icon.png">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+
+    <div class="container">
+        <img src="assets/icon.png" alt="YT-Ripper" class="app-logo">
+        <h2>YT-Ripper</h2>
+        
+        <div class="input-group">
+            <input type="text" id="urlInput" placeholder="Paste YouTube Link..." spellcheck="false">
+        </div>
+
+        <div class="folder-group">
+            <button id="browseBtn" class="outline-btn">
+                <i class="fas fa-folder-open"></i> Save To...
+            </button>
+            <div id="pathDisplay">Default: Downloads Folder</div>
+        </div>
+
+        <div class="button-group">
+            <button id="vidBtn" class="action-btn">
+                <i class="fas fa-video"></i> Download Video
+            </button>
+            <button id="audBtn" class="action-btn">
+                <i class="fas fa-music"></i> Download Audio
+            </button>
+        </div>
+
+        <p id="statusText">Ready.</p>
+    </div>
+
+    <div id="qualityModal" class="modal-overlay">
+        <div class="modal-content">
+            <h3>Select Quality</h3>
+            <button class="quality-btn" data-q="1080p">1080p (Full HD)</button>
+            <button class="quality-btn" data-q="720p">720p (HD)</button>
+            <button class="quality-btn" data-q="480p">480p (SD)</button>
+            <button id="cancelBtn" class="cancel-btn">Cancel</button>
+        </div>
+    </div>
+
+    <script src="renderer.js"></script>
+</body>
+</html>

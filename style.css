@@ -1,0 +1,185 @@
+/* -- RESET & BASE STYLES -- */
+body {
+    background-color: #ffffff;
+    color: #000000;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    user-select: none;
+    overflow: hidden;
+}
+
+.container {
+    width: 100%;
+    max-width: 400px;
+    padding: 30px;
+    text-align: center;
+}
+
+/* -- HEADER ELEMENTS -- */
+.app-logo {
+    width: 64px;
+    height: 64px;
+    margin-bottom: 15px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+h2 {
+    margin-top: 0;
+    margin-bottom: 25px;
+    font-weight: 600;
+    font-size: 20px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: #333;
+}
+
+/* -- INPUT ELEMENTS -- */
+input {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 12px;
+    margin-bottom: 20px;
+    border: 1px solid #000;
+    border-radius: 0;
+    outline: none;
+    font-size: 14px;
+    text-align: center;
+}
+
+input:focus {
+    background-color: #fafafa;
+}
+
+/* -- DIRECTORY SELECTOR -- */
+.folder-group {
+    margin-bottom: 25px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+}
+
+#pathDisplay {
+    font-size: 11px;
+    color: #666;
+    font-family: monospace;
+}
+
+/* -- BUTTONS -- */
+.button-group {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 25px;
+}
+
+button {
+    cursor: pointer;
+    font-size: 13px;
+    font-weight: 600;
+    padding: 12px 24px;
+    text-transform: uppercase;
+    transition: background-color 0.1s;
+    border-radius: 0;
+}
+
+.outline-btn {
+    background: transparent;
+    border: 1px solid #ccc;
+    color: #555;
+    padding: 8px 16px;
+    font-size: 12px;
+}
+
+.outline-btn:hover {
+    border-color: #000;
+    color: #000;
+}
+
+.action-btn {
+    background: #fff;
+    border: 1px solid #000;
+    color: #000;
+    min-width: 140px;
+}
+
+.action-btn:hover {
+    background: #000;
+    color: #fff;
+}
+
+.action-btn:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+    background: #fff !important;
+    color: #000 !important;
+}
+
+/* -- STATUS TEXT -- */
+#statusText {
+    margin-top: 10px;
+    font-size: 13px;
+    color: #333;
+    font-weight: 500;
+    min-height: 20px;
+}
+
+/* -- MODAL STYLES -- */
+.modal-overlay {
+    display: none;
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(255, 255, 255, 0.95);
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.modal-content {
+    background: #fff;
+    border: 2px solid #000;
+    padding: 30px;
+    width: 260px;
+    text-align: center;
+}
+
+.modal-content h3 {
+    margin-top: 0;
+    font-size: 16px;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+}
+
+.quality-btn {
+    display: block;
+    width: 100%;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    background: #fff;
+    padding: 12px;
+}
+
+.quality-btn:hover {
+    border-color: #000;
+    background: #f8f8f8;
+}
+
+.cancel-btn {
+    margin-top: 15px;
+    border: none;
+    background: transparent;
+    text-decoration: underline;
+    color: #666;
+    font-size: 12px;
+}
+
+.cancel-btn:hover {
+    color: #000;
+}

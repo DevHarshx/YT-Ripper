@@ -1,0 +1,7 @@
+node_modules/
+bin/
+dist/
+build/
+!dist/YT-Ripper*.exe
+.DS_Store
+Thumbs.db

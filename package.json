@@ -1,0 +1,36 @@
+{
+  "name": "yt-ripper",
+  "version": "1.0.0",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "dist": "electron-builder"
+  },
+  "keywords": [
+    "youtube",
+    "downloader"
+  ],
+  "author": "User",
+  "license": "ISC",
+  "description": "Professional YouTube Downloader",
+  "devDependencies": {
+    "electron": "^33.2.1",
+    "electron-builder": "^24.13.3"
+  },
+  "dependencies": {},
+  "build": {
+    "appId": "com.ytripper.app",
+    "productName": "YT-Ripper",
+    "directories": {
+      "output": "dist"
+    },
+    "win": {
+      "target": "portable",
+      "icon": "assets/icon.png"
+    },
+    "extraResources": [
+      "bin/**",
+      "assets/**"
+    ]
+  }
+}
