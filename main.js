@@ -1,6 +1,6 @@
 const { app, BrowserWindow, ipcMain, dialog } = require('electron');
 const path = require('path');
-const { spawn } = require('child_process');
+const { spawn, spawnSync } = require('child_process');
 const fs = require('fs');
 
 if (process.platform === 'win32') {
@@ -9,16 +9,44 @@ if (process.platform === 'win32') {
 
 let mainWindow;
 
-// --- PATH CONFIGURATION ---
-// 1. LOCATE FFMPEG
-const ffmpegPath = app.isPackaged
-    ? path.join(process.resourcesPath, 'bin', 'ffmpeg.exe')
-    : path.join(__dirname, 'bin', 'ffmpeg.exe');
+// --- CROSS-PLATFORM BINARY HELPERS ---
+function binName(base) {
+    return process.platform === 'win32' ? `${base}.exe` : base;
+}
 
-// 2. LOCATE YT-DLP (This fixes your error! ✨)
-const ytDlpPath = app.isPackaged
-    ? path.join(process.resourcesPath, 'bin', 'yt-dlp.exe')
-    : path.join(__dirname, 'bin', 'yt-dlp.exe');
+function bundledBinaryPath(base) {
+    // packaged: resourcesPath/bin/<name>
+    if (app.isPackaged) {
+        return path.join(process.resourcesPath, 'bin', binName(base));
+    }
+    // dev: <projectRoot>/bin/<name>
+    return path.join(__dirname, 'bin', binName(base));
+}
+
+function commandExists(cmd) {
+    // If cmd is a path that exists, return true
+    try {
+        if (fs.existsSync(cmd)) return true;
+    } catch (e) {}
+    // Otherwise check PATH via 'which' / 'command -v'
+    try {
+        const res = spawnSync('which', [cmd], { encoding: 'utf8' });
+        return res.status === 0 && res.stdout && res.stdout.trim().length > 0;
+    } catch (e) {
+        return false;
+    }
+}
+
+function resolveBinary(base) {
+    const bundled = bundledBinaryPath(base);
+    if (fs.existsSync(bundled)) return bundled;
+    // fall back to system name (assume in PATH)
+    return base;
+}
+
+// --- PATH CONFIGURATION ---
+const ffmpegPath = resolveBinary('ffmpeg');
+const ytDlpPath = resolveBinary('yt-dlp');
 
 function createWindow() {
     mainWindow = new BrowserWindow({
@@ -55,34 +83,34 @@ ipcMain.handle('select-folder', async () => {
 });
 
 ipcMain.on('start-download', (event, { url, isAudio, savePath, quality }) => {
-    
-    // SAFETY CHECK 1: Ensure FFmpeg exists
-    if (!fs.existsSync(ffmpegPath)) {
-        mainWindow.webContents.send('download-complete', { 
-            status: 'error', 
-            message: 'Critical Error: bin/ffmpeg.exe is missing!' 
+
+    // SAFETY CHECK 1: Ensure FFmpeg exists (bundled or system)
+    if (!commandExists(ffmpegPath)) {
+        mainWindow.webContents.send('download-complete', {
+            status: 'error',
+            message: `Critical Error: ffmpeg not found. Expected bundled at ${ffmpegPath} or system 'ffmpeg' in PATH.`
         });
         return;
     }
 
-    // SAFETY CHECK 2: Ensure yt-dlp exists 🛡️
-    if (!fs.existsSync(ytDlpPath)) {
-        mainWindow.webContents.send('download-complete', { 
-            status: 'error', 
-            message: 'Critical Error: bin/yt-dlp.exe is missing!' 
+    // SAFETY CHECK 2: Ensure yt-dlp exists
+    if (!commandExists(ytDlpPath)) {
+        mainWindow.webContents.send('download-complete', {
+            status: 'error',
+            message: `Critical Error: yt-dlp not found. Expected bundled at ${ytDlpPath} or system 'yt-dlp' in PATH.`
         });
         return;
     }
 
     const args = [
-        '--newline', 
+        '--newline',
         '--no-part',
         '--no-mtime',
         '--restrict-filenames',
-        '--ffmpeg-location', ffmpegPath, 
+        '--ffmpeg-location', ffmpegPath,
         '--merge-output-format', 'mp4'
     ];
-    
+
     const downloadPath = savePath || app.getPath('downloads');
     args.push('-P', downloadPath);
     args.push('-o', '%(title)s.%(ext)s');
@@ -109,7 +137,7 @@ ipcMain.on('start-download', (event, { url, isAudio, savePath, quality }) => {
 
     args.push(url);
 
-    // EXECUTE DOWNLOAD (Now using the fixed path!)
+    // EXECUTE DOWNLOAD
     const downloadProcess = spawn(ytDlpPath, args);
 
     downloadProcess.stdout.on('data', (data) => {
@@ -123,7 +151,7 @@ ipcMain.on('start-download', (event, { url, isAudio, savePath, quality }) => {
                 if (!isNaN(percent)) {
                     mainWindow.webContents.send('progress-update', percent);
                 }
-            } catch (e) {}
+            } catch (e) { }
         }
     });
 

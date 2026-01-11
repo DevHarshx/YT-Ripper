@@ -28,6 +28,13 @@
       "target": "portable",
       "icon": "assets/icon.png"
     },
+    "linux": {
+      "target": [
+        "AppImage",
+        "deb"
+      ],
+      "icon": "assets/icon.png"
+    },
     "extraResources": [
       "bin/**",
       "assets/**"
