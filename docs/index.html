@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>YT-Ripper | The Future of Media</title>
+    <meta name="description" content="Professional grade YouTube downloader. Privacy focused. 1080p support.">
+    <meta name="theme-color" content="#000000">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="noise-overlay"></div>
+    <div class="ambient-light">
+        <div class="orb orb-1"></div>
+        <div class="orb orb-2"></div>
+    </div>
+
+    <nav id="navbar">
+        <div class="container nav-content">
+            <div class="brand-wrapper">
+                <img src="https://github.com/DevHarshx/YT-Ripper/blob/main/assets/icon.png?raw=true" alt="Icon" class="brand-icon">
+                <span>YT-Ripper</span>
+            </div>
+            <div class="nav-links">
+                <a href="#features" class="nav-link">Capabilities</a>
+                <a href="#workflow" class="nav-link">Workflow</a>
+                <a href="#specs" class="nav-link">Specs</a>
+                <button class="btn-nav-download" onclick="handleDownload()">Get App</button>
+            </div>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <div class="container">
+            <div class="hero-badge">
+                <span></span> Leatest v1.0.1
+            </div>
+            <h1 class="hero-title">Video Downloading.<br><span class="gradient-brand">Reimagined.</span></h1>
+            <p class="hero-subtitle">Stop fighting with sketchy websites. Get 1080p downloads with perfectly merged audio in a single, portable executable.</p>
+            
+            <div class="cta-group">
+                <button class="btn-primary" onclick="handleDownload()">
+                    Download for Windows
+                </button>
+                <a href="https://github.com/DevHarsh001/YT-Ripper" target="_blank" class="btn-secondary">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                    GitHub
+                </a>
+            </div>
+
+            <div class="hero-showcase" id="tilt-wrapper">
+                <div class="tilt-card" id="tilt-card">
+                    <img src="https://i.ibb.co/TBQ7hvKv/image.png" alt="Software Interface">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="tech-stack">
+        <div class="tech-track">
+            <div class="tech-item"><span style="color:#61dafb">●</span> Privacy</div>
+            <div class="tech-item"><span style="color:#00b0ff">●</span> Speed</div>
+            <div class="tech-item"><span style="color:#339933">●</span> Reliability</div>
+            <div class="tech-item"><span style="color:#dd0031">●</span> Scalability</div>
+            <div class="tech-item"><span style="color:#f7df1e">●</span> Future Proof</div>
+            <div class="tech-item"><span style="color:#61dafb">●</span> Light-weight</div> </div>
+    </div>
+
+    <section id="features" class="section-padding">
+        <div class="container">
+            <div class="header-center">
+                <h2 class="gradient-text">Engineered for Perfection.</h2>
+                <p>Most downloaders are bloated. We stripped away the nonsense and focused on raw performance.</p>
+            </div>
+
+            <div class="bento-grid">
+                <div class="bento-card span-8">
+                    <div class="bento-icon">
+                        <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"></path></svg>
+                    </div>
+                    <h3>Full 1080p Definition</h3>
+                    <p>Don't compromise on pixels. YT-Ripper pulls the highest bitrate video stream and the highest quality audio stream, then seamlessly merges them using FFmpeg on the fly.</p>
+                    <div class="card-decoration"></div>
+                </div>
+
+                <div class="bento-card span-4">
+                    <div class="bento-icon">
+                        <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+                    </div>
+                    <h3>Smart Fail-Safe</h3>
+                    <p>Missing dependencies? No problem. The engine adapts to 'Safe Mode' (720p) instantly.</p>
+                </div>
+
+                <div class="bento-card span-4">
+                    <div class="bento-icon">
+                        <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg>
+                    </div>
+                    <h3>No Install</h3>
+                    <p>It's just an .exe. Double click and it runs. No wizard, no registry clutter.</p>
+                </div>
+
+                <div class="bento-card span-8">
+                    <div class="bento-icon">
+                        <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+                    </div>
+                    <h3>Zero Telemetry</h3>
+                    <p>We respect your machine. The source code is open for verification. No data leaves your computer. Period.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="specs" class="section-padding" style="background: #000;">
+        <div class="container">
+            <div class="header-center">
+                <h2>The Power of Open Source</h2>
+                <p>Transparent logic. Efficient execution.</p>
+            </div>
+            
+            <div class="terminal-wrapper">
+                <div class="terminal-bar">
+                    <div class="dot red"></div>
+                    <div class="dot yellow"></div>
+                    <div class="dot green"></div>
+                </div>
+                <div class="terminal-content" id="code-block">
+                    <span class="code-line"><span class="keyword">const</span> <span class="function">downloadVideo</span> = <span class="keyword">async</span> (url) => {</span>
+                    <span class="code-line">&nbsp;&nbsp;<span class="comment">// Initialize Core Engine</span></span>
+                    <span class="code-line">&nbsp;&nbsp;<span class="keyword">const</span> engine = <span class="keyword">new</span> RipperEngine(url);</span>
+                    <span class="code-line">&nbsp;&nbsp;</span>
+                    <span class="code-line">&nbsp;&nbsp;<span class="comment">// Fetch 1080p Stream</span></span>
+                    <span class="code-line">&nbsp;&nbsp;<span class="keyword">await</span> engine.<span class="function">fetchStream</span>({ quality: <span class="string">'1080p'</span> });</span>
+                    <span class="code-line">&nbsp;&nbsp;</span>
+                    <span class="code-line">&nbsp;&nbsp;<span class="comment">// Merge Audio & Video</span></span>
+                    <span class="code-line">&nbsp;&nbsp;<span class="keyword">return</span> engine.<span class="function">mergeWithFFmpeg</span>();</span>
+                    <span class="code-line">}</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="workflow" class="section-padding">
+        <div class="container">
+            <div class="step-container">
+                <div class="step-text">
+                    <div class="step-num">01</div>
+                    <h3 class="step-title">Copy Link</h3>
+                    <p class="hero-subtitle" style="margin:0; font-size: 1.1rem;">Find your favorite content on YouTube. Simply copy the URL from the address bar.</p>
+                </div>
+                <div class="step-visual">
+                    <div class="step-card">
+                        <img src="https://i.ibb.co/RTxxcNxD/image.png" alt="Step 1">
+                    </div>
+                </div>
+            </div>
+
+            <div class="step-container reverse">
+                <div class="step-text">
+                    <div class="step-num">02</div>
+                    <h3 class="step-title">Paste & Go</h3>
+                    <p class="hero-subtitle" style="margin:0; font-size: 1.1rem;">Launch YT-Ripper. Paste the link. The engine automatically analyzes available formats.</p>
+                </div>
+                <div class="step-visual">
+                    <div class="step-card">
+                        <img src="https://i.ibb.co/qMx8dZ5r/image.png" alt="Step 2">
+                    </div>
+                </div>
+            </div>
+
+            <div class="step-container">
+                <div class="step-text">
+                    <div class="step-num">03</div>
+                    <h3 class="step-title">Offline Ready</h3>
+                    <p class="hero-subtitle" style="margin:0; font-size: 1.1rem;">Select your resolution. In seconds, the file is saved to your downloads folder.</p>
+                </div>
+                <div class="step-visual">
+                    <div class="step-card">
+                        <img src="https://i.ibb.co/vC7NxByk/image.png" alt="Step 3">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="download-section">
+        <div class="container">
+            <h2 style="font-size: 3rem; margin-bottom: 20px;">Ready to Rip?</h2>
+            <p style="color:var(--text-secondary); margin-bottom: 40px;">Join thousands of users enjoying ad-free offline playback.</p>
+            <button class="btn-primary" onclick="handleDownload()">Get YT-Ripper v1.0.1</button>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <h4>
+                         <img src="https://github.com/DevHarshx/YT-Ripper/blob/main/assets/icon.png?raw=true" alt="Icon" width="30" style="border-radius:6px;">
+                         YT-Ripper
+                    </h4>
+                    <p style="color:var(--text-tertiary); font-size: 0.9rem; max-width: 300px;">
+                        The minimalist, high-performance YouTube downloader designed for Windows. Built by developers, for everyone.
+                    </p>
+                </div>
+                
+                <div class="footer-col">
+                    <h5>Product</h5>
+                    <ul>
+                        <li><a href="#features">Features</a></li>
+                        <li><a href="https://github.com/DevHarsh001/YT-Ripper/releases">Changelog</a></li>
+                        <li><a href="https://harshtiwari.pro">My Website</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h5>Support</h5>
+                    <ul>
+                        <li><a href="https://github.com/DevHarsh001/YT-Ripper">Documentation</a></li>
+                        <li><a href="https://discord.gg/8EtrjWqgJe">Discord Community</a></li>
+                        <li><a href="https://github.com/DevHarsh001/YT-Ripper/issues">Report Issue</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                &copy; 2026 Harsh Tiwari. All rights reserved. Not affiliated with Google LLC.
+            </div>
+        </div>
+    </footer>
+
+    <div class="toast-container" id="toast">
+        <svg class="toast-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+        <div style="text-align: left;">
+            <div style="font-weight: 600; font-size: 0.95rem;">Download Started</div>
+            <div style="font-size: 0.8rem; color: #9CA3AF;">Check your browser downloads.</div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
